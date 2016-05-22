@@ -8,13 +8,29 @@ var app = express();
 // Use public directory
 app.use(express.static('public'));
 
+// Datastore
+var Datastore = require('nedb')
+  , db = new Datastore();
+
 // Main route
 app.get('/', function (req, res) {
 
   var readout = sensor.read();
   answer = 'Temperature: ' + readout.temperature.toFixed(2);
   answer += ' Humidity: ' + readout.humidity.toFixed(2);
-  res.send(answer);
+  res.send({answer});
+
+});
+
+
+// Data route
+app.get('/data', function (req, res) {
+
+  db.find({}, function (err, docs) {
+
+    res.json(docs); 
+
+  });
 
 });
 
@@ -33,7 +49,21 @@ var sensor = {
 
         // Read
         var readout = sensorLib.read();
-        return readout;   
+        
+        // Log
+        var data = {
+            humidity: readout.humidity.toFixed(2),
+            temperature: readout.temperature.toFixed(2),
+            date: new Date()
+        };
+        db.insert(data, function (err, newDoc) { 
+            console.log(newDoc);
+        });
+
+        // Repeat
+        setTimeout(function () {
+            sensor.read();
+        }, 10000);
     }
 };
 
