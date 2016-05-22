@@ -9,9 +9,9 @@ $( document ).ready(function() {
 
     for (i = 0; i < measurements.length; i++) {
 
-        dates.append(measurements[i].date);
-        temperature.append(measurements[i].temperature);
-        humidity.append(measurements[i].temperature);
+        dates.push(measurements[i].date);
+        temperature.push(measurements[i].temperature);
+        humidity.push(measurements[i].temperature);
 
     }
 
