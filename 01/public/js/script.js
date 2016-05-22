@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
   // Format data
-  $.get('/data', function(err, measurements) {
+  $.get('/data', function(measurements) {
 
     var dates = [];
     var temperature = [];
