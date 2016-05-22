@@ -13,7 +13,7 @@ $( document ).ready(function() {
 
         dates.push(measurements[i].date);
         temperature.push(parseFloat(measurements[i].temperature));
-        humidity.push(parseFloat(measurements[i].temperature));
+        humidity.push(parseFloat(measurements[i].humidity));
 
     }
 
