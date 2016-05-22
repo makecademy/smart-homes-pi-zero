@@ -9,8 +9,9 @@ var app = express();
 app.get('/', function (req, res) {
 
   var readout = sensor.read();
-  res.send('Temperature: ' + readout.temperature.toFixed(2));
-  res.send('Humidity: ' + readout.humidity.toFixed(2));
+  answer = 'Temperature: ' + readout.temperature.toFixed(2);
+  answer += 'Humidity: ' + readout.humidity.toFixed(2);
+  res.send(answer);
 
 });
 
