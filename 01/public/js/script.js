@@ -1,4 +1,4 @@
-$(function () {
+$( document ).ready(function() {
     $('#container').highcharts({
         title: {
             text: 'Monthly Average Temperature',
