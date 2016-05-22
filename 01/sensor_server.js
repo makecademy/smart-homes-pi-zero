@@ -10,12 +10,13 @@ app.get('/', function (req, res) {
 
   var readout = sensor.read();
   res.send('Temperature: ' + readout.temperature.toFixed(2));
-  
+  res.send('Humidity: ' + readout.humidity.toFixed(2));
+
 });
 
 // Start server
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Raspberry Pi Zero app listening on port 3000!');
 });
 
 
