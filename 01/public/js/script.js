@@ -7,11 +7,13 @@ $( document ).ready(function() {
     var temperature = [];
     var humidity = [];
 
+    console.log(measurements);
+
     for (i = 0; i < measurements.length; i++) {
 
         dates.push(measurements[i].date);
-        temperature.push(measurements[i].temperature);
-        humidity.push(measurements[i].temperature);
+        temperature.push(parseFloat(measurements[i].temperature));
+        humidity.push(parseFloat(measurements[i].temperature));
 
     }
 
