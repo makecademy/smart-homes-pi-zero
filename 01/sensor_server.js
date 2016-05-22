@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 
   var readout = sensor.read();
   answer = 'Temperature: ' + readout.temperature.toFixed(2);
-  answer += 'Humidity: ' + readout.humidity.toFixed(2);
+  answer += ' Humidity: ' + readout.humidity.toFixed(2);
   res.send(answer);
 
 });
