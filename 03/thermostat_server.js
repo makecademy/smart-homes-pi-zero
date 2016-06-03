@@ -57,14 +57,17 @@ setTimeout(function () {
 
   // Check temperature
   temperature = sensor.read().temperature.toFixed(2);
+  console.log('Current temperature:' + temperature);
 
   // Too high?
   if (temperature > targetTemperature + 1) {
+    console.log('Deactivating heater');
     piREST.digitalWrite(heaterPin, 0);
   }
 
   // Too low?
   if (temperature < targetTemperature - 1) {
+    console.log('Activating heater');
     piREST.digitalWrite(heaterPin, 1);
   }
 
