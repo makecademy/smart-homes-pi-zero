@@ -14,6 +14,12 @@ var threshold = 1;
 var heaterPin = 29;
 
 // Routes
+app.get('/', function (req, res) {
+
+  res.sendfile(__dirname + '/public/interface.html');
+
+});
+
 app.get('/get', function (req, res) {
 
   answer = {
