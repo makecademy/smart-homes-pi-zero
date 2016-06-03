@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+  console.log( "ready!" );
+
   // Get data
   $.get('/get', function(data) {
 
