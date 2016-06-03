@@ -4,7 +4,6 @@ var express = require('express');
 
 // Express app
 var app = express();
-var piREST = require('pi-arest')(app);
 
 // aREST configuration
 piREST.set_id('34f5eQ');
@@ -32,6 +31,9 @@ app.get('/temperature', function (req, res) {
   res.json(answer);
 
 });
+
+// aREST
+var piREST = require('pi-arest')(app);
 
 // Start server
 app.listen(3000, function () {
