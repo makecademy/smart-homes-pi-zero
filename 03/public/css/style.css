@@ -9,3 +9,8 @@ body {
 text-center {
   text-align: center;
 }
+
+.row {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
