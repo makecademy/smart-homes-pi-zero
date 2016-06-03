@@ -29,9 +29,9 @@ app.get('/temperature', function (req, res) {
 });
 
 // aREST
+var piREST = require('pi-arest')(app);
 piREST.set_id('34f5eQ');
 piREST.set_name('my_rpi_zero');
-var piREST = require('pi-arest')(app);
 
 // Start server
 app.listen(3000, function () {
