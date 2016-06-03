@@ -5,15 +5,25 @@ $( document ).ready(function() {
   // Get data
   $.get('/get', function(data) {
 
-    console.log(data);
     $('#thermostat').html(data.targetTemperature);
 
   });
 
   $.get('/temperature', function(data) {
 
-    console.log(data);
     $('#temperature').html(data.temperature);
+
+  });
+
+  $( "#set-thermostat" ).click(function() {
+
+    // Get value
+    var newThermostatValue = $('#thermostatValue').val();
+
+    // Set new value
+    $.get('/set?temperature=' + newThermostatValue, function(data) {
+      $('#thermostat').html(data.targetTemperature);
+    });
 
   });
 
