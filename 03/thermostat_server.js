@@ -8,10 +8,24 @@ var app = express();
 // Thermostat settings
 var targetTemperature = 25;
 var threshold = 1;
+var heaterPin = 29;
 
 // Routes
 app.get('/get', function (req, res) {
 
+  answer = {
+    targetTemperature: targetTemperature
+  };
+  res.json(answer);
+
+});
+
+app.get('/set', function (req, res) {
+
+  // Set
+  targetTemperature = req.query.targetTemperature;
+
+  // Answer
   answer = {
     targetTemperature: targetTemperature
   };
@@ -38,6 +52,23 @@ app.listen(3000, function () {
   console.log('Raspberry Pi Zero thermostat started!');
 });
 
+// Thermostat function
+setTimeout(function () {
+
+  // Check temperature
+  temperature = sensor.read().temperature.toFixed(2);
+
+  // Too high?
+  if (temperature > targetTemperature + 1) {
+    piREST.digitalWrite(heaterPin, 0);
+  }
+
+  // Too low?
+  if (temperature < targetTemperature - 1) {
+    piREST.digitalWrite(heaterPin, 1);
+  }
+
+}, 10 * 1000);
 
 // Sensor
 var sensor = {
