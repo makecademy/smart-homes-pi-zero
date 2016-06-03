@@ -53,11 +53,12 @@ app.listen(3000, function () {
 });
 
 // Thermostat function
-setTimeout(function () {
+setInterval(function () {
 
   // Check temperature
   temperature = parseFloat(sensor.read().temperature);
   console.log('Current temperature:' + temperature);
+  console.log('Target temperature: ' + parseFloat(targetTemperature));
 
   // Too high?
   if (temperature > parseFloat(targetTemperature) + 1) {
