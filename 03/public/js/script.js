@@ -21,7 +21,7 @@ $( document ).ready(function() {
     var newThermostatValue = $('#thermostatValue').val();
 
     // Set new value
-    $.get('/set?temperature=' + newThermostatValue, function(data) {
+    $.get('/set?targetTemperature=' + newThermostatValue, function(data) {
       $('#thermostat').html(data.targetTemperature);
     });
 
