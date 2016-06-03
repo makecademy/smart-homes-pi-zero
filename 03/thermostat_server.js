@@ -5,10 +5,6 @@ var express = require('express');
 // Express app
 var app = express();
 
-// aREST configuration
-piREST.set_id('34f5eQ');
-piREST.set_name('my_rpi_zero');
-
 // Thermostat settings
 var targetTemperature = 25;
 var threshold = 1;
@@ -33,6 +29,8 @@ app.get('/temperature', function (req, res) {
 });
 
 // aREST
+piREST.set_id('34f5eQ');
+piREST.set_name('my_rpi_zero');
 var piREST = require('pi-arest')(app);
 
 // Start server
