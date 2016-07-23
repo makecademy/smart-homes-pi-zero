@@ -1,29 +1,16 @@
 $( document ).ready(function() {
 
-  console.log( "ready!" );
+  $( "#on" ).click(function() {
 
-  // Get data
-  $.get('/get', function(data) {
-
-    $('#thermostat').html(data.targetTemperature);
+    // Set lamp ON
+    $.get('/on');
 
   });
 
-  $.get('/temperature', function(data) {
+  $( "#off" ).click(function() {
 
-    $('#temperature').html(data.temperature);
-
-  });
-
-  $( "#set-thermostat" ).click(function() {
-
-    // Get value
-    var newThermostatValue = $('#thermostatValue').val();
-
-    // Set new value
-    $.get('/set?targetTemperature=' + newThermostatValue, function(data) {
-      $('#thermostat').html(data.targetTemperature);
-    });
+    // Set lamp OFF
+    $.get('/off');
 
   });
 

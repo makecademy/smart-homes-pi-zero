@@ -10,7 +10,7 @@ var motorDirectionTwo = new Gpio(15, {mode: Gpio.OUTPUT})
 motorDirectionOne.digitalWrite(0);
 motorDirectionTwo.digitalWrite(1);
 
-var speed = 0;
+var dutyCycle = 0;
 
 // Go from 0 to maximum brightness
 setInterval(function () {
