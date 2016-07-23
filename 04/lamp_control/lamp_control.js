@@ -21,11 +21,23 @@ app.get('/on', function (req, res) {
 
   piREST.digitalWrite(lampPin, 1);
 
+  // Answer
+  answer = {
+    status: 1
+  };
+  res.json(answer);
+
 });
 
 app.get('/off', function (req, res) {
 
   piREST.digitalWrite(lampPin, 0);
+
+  // Answer
+  answer = {
+    status: 0
+  };
+  res.json(answer);
 
 });
 
