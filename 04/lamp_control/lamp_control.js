@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 // Pin
-var lampPin = 18;
+var lampPin = 12;
 
 // Use public directory
 app.use(express.static('public'));
