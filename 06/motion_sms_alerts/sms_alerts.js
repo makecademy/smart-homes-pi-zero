@@ -3,7 +3,7 @@ var request = require('request');
 var gpio = require('rpi-gpio');
 
 // IFTTT data
-var key = "dPMHywdahaSxQZlCaoqnzHxcQ8vNYsTlk";
+var key = "dPMHywdahaSxQZlCaoqnzHxcQ8vNYsTlk-42gSLAFQP";
 var eventName = 'motion_detected';
 
 // Motion sensor GPIO
