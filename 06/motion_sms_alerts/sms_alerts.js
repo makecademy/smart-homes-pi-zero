@@ -9,7 +9,7 @@ var key = "dPMHywdahaSxQZlCaoqnzHxcQ8vNYsTlk";
 var motionSensorPin = 18;
 
 // Counter between two alerts
-var interval = 60 * 1000; // 1 minute
+var interval = 10 * 1000; // 1 minute
 var counter = new Date();
 
 // Setup gpio library
@@ -21,7 +21,7 @@ setInterval(function() {
   // Check counter so we don't trigger alarms all the time
   var currentTime = (new Date()).getTime();
   var counterTime = counter.getTime();
-  if (currentTime - counterTime > interval) {
+  if ( (currentTime - counterTime) > interval) {
 
     // Check sensor
     gpio.setup(motionSensorPin, gpio.DIR_IN, checkSensor);
