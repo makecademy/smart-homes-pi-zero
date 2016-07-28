@@ -4,6 +4,7 @@ var gpio = require('rpi-gpio');
 
 // IFTTT data
 var key = "dPMHywdahaSxQZlCaoqnzHxcQ8vNYsTlk";
+var eventName = 'motion_detected';
 
 // Motion sensor GPIO
 var motionSensorPin = 18;
@@ -56,7 +57,7 @@ function alertIFTTT() {
 
   // Send alert to IFTTT
   console.log("Sending alert to IFTTT");
-  var url = 'https://maker.ifttt.com/trigger/{event}/with/key/' + key;
+  var url = 'https://maker.ifttt.com/trigger/' + eventName + '/with/key/' + key;
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log("Alert sent to IFTTT");
