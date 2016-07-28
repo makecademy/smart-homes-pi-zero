@@ -9,6 +9,9 @@ var eventName = 'temperature_low';
 // Temperature sensor GPIO
 var sensorPin = 18;
 
+// Threshold
+var threshold = 30;
+
 // Counter between two alerts
 var interval = 60 * 1000; // 1 minute
 var counter = new Date();
