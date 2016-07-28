@@ -55,6 +55,7 @@ function checkSensor() {
 function alertIFTTT() {
 
   // Send alert to IFTTT
+  console.log("Sending alert to IFTTT");
   var url = 'https://maker.ifttt.com/trigger/{event}/with/key/' + key;
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
