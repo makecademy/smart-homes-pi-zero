@@ -13,7 +13,7 @@ var interval = 60 * 1000; // 1 minute
 var counter = new Date();
 
 // Setup gpio library
-gpio.setMode(MODE_BCM);
+gpio.setMode(gpio.MODE_BCM);
 
 // Check status every second
 setInterval(function() {
