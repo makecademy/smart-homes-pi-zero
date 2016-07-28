@@ -21,6 +21,9 @@ setInterval(function() {
   // Check counter so we don't trigger alarms all the time
   var currentTime = (new Date()).getTime();
   var counterTime = counter.getTime();
+
+  console.log('Current time difference: ' + (currentTime - counterTime));
+
   if ( (currentTime - counterTime) > interval) {
 
     // Check sensor
@@ -33,6 +36,8 @@ setInterval(function() {
 // Check motion sensor
 function checkSensor() {
   gpio.read(motionSensorPin, function(err, value) {
+
+      console.log('Sensor value: ' + value);
 
       // If motion is detected, send event to IFTTT
       if (value == true) {
