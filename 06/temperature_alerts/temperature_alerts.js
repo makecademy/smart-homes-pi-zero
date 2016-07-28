@@ -21,7 +21,7 @@ var sensor = {
 
         // Read
         var readout = sensorLib.read();
-        temperature: readout.temperature.toFixed(2);
+        temperature = readout.temperature.toFixed(2);
         console.log('Current temperature: ' + temperature);
 
         // Check counter so we don't trigger IFTTT all the time
