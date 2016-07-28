@@ -27,7 +27,7 @@ var sensor = {
         console.log('Current humidity: ' + humidity);
 
         // Send event
-        logIFTTT();
+        logIFTTT(temperature, humidity);
 
         // Repeat
         setTimeout(function () {
