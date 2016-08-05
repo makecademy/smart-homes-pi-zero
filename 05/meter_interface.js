@@ -2,7 +2,6 @@
 var mcpadc = require('mcp-spi-adc');
 var express = require('express');
 var app = express();
-var piREST = require('pi-arest')(app);
 
 // Use public directory
 app.use(express.static('public'));
@@ -11,7 +10,7 @@ app.use(express.static('public'));
 var outputPin = 18;
 
 // Routes
-app.get('/interface', function (req, res) {
+app.get('/', function (req, res) {
 
   res.sendfile(__dirname + '/public/interface.html');
 
@@ -40,6 +39,9 @@ app.get('/off', function (req, res) {
   res.json(answer);
 
 });
+
+// Pi-aREST instance
+var piREST = require('pi-arest')(app);
 
 // ADC channel
 var channel = 5;
