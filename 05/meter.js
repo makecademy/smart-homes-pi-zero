@@ -44,7 +44,7 @@ var sensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
         if (err) throw err;
 
         // Take max of measurements
-        measurement = max(measurement, reading.value);
+        measurement = Math.max(measurement, reading.value);
       });
 
     }
