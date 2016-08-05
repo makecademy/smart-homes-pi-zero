@@ -33,24 +33,37 @@ var sensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
 
   // Measurement interval
   setInterval(function () {
-    sensor.read(function (err, reading) {
-      if (err) throw err;
 
-      // Calculate current
-      var measuredVoltage = reading.value * 3.3;
-      var measuredCurrent = (measuredVoltage/resistance) * 2000 / 1.41;
+    // Init measurement
+    var measurement = 0;
 
-      // Calculate power
-      var power = voltage * measuredCurrent;
+    for (i = 0; i < 20; i++) {
 
-      // Assign to aREST
-      piREST.variable('power', power.toFixed(2));
-      piREST.variable('current', measuredCurrent.toFixed(2));
+      // Measure
+      sensor.read(function (err, reading) {
+        if (err) throw err;
 
-      // Log output
-      console.log("Measured current: " + measuredCurrent.toFixed(2) + 'A');
-      console.log("Measured power: " + power.toFixed(2) + 'W');
+        // Take max of measurements
+        measurement = max(measurement, reading.value);
+      });
 
-    });
-  }, 500);
+    }
+
+    // Calculate current
+    var measuredVoltage = measurement * 3.3;
+    var measuredCurrent = (measuredVoltage/resistance) * 2000 / 1.41;
+
+    // Calculate power
+    var power = voltage * measuredCurrent;
+
+    // Assign to aREST
+    piREST.variable('power', power.toFixed(2));
+    piREST.variable('current', measuredCurrent.toFixed(2));
+
+    // Log output
+    console.log("Measured current: " + measuredCurrent.toFixed(2) + 'A');
+    console.log("Measured power: " + power.toFixed(2) + 'W');
+
+
+  }, 1000);
 });
