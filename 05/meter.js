@@ -53,5 +53,5 @@ var sensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
       console.log("Measured power: " + power);
 
     });
-  }, 2000);
+  }, 500);
 });
