@@ -38,19 +38,18 @@ var sensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
 
       // Calculate current
       var measuredVoltage = reading.value * 3.3;
-      console.log("Measured ADC voltage: " + measuredVoltage);
-      var measuredCurrent = (measuredVoltage/resistance) * 2000;
+      var measuredCurrent = (measuredVoltage/resistance) * 2000 / 1.41;
 
       // Calculate power
-      var power = voltage * measuredCurrent / 1.41;
+      var power = voltage * measuredCurrent;
 
       // Assign to aREST
-      piREST.variable('power', power);
-      piREST.variable('current', measuredCurrent);
+      piREST.variable('power', power.toFixed(2));
+      piREST.variable('current', measuredCurrent.toFixed(2));
 
       // Log output
-      console.log("Measured current: " + measuredCurrent);
-      console.log("Measured power: " + power);
+      console.log("Measured current: " + measuredCurrent.toFixed(2) + 'A');
+      console.log("Measured power: " + power.toFixed(2) + 'W');
 
     });
   }, 500);
