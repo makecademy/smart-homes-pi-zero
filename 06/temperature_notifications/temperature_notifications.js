@@ -3,7 +3,7 @@ var request = require('request');
 var sensorLib = require('node-dht-sensor');
 
 // IFTTT data
-var key = "dPMHywdahaSxQZlCaoqnzHxcQ8vNYsTlk-42gSLAFQP";
+var key = "key";
 var eventName = 'data';
 
 // Temperature sensor GPIO
