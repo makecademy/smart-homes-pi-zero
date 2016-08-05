@@ -28,16 +28,17 @@ var server = app.listen(80, function() {
 });
 
 // Sensor measurement loop
-var tempSensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
+var sensor = mcpadc.open(channel, {speedHz: 20000}, function (err) {
   if (err) throw err;
 
   // Measurement interval
   setInterval(function () {
-    tempSensor.read(function (err, reading) {
+    sensor.read(function (err, reading) {
       if (err) throw err;
 
       // Calculate current
       var measuredVoltage = reading.value * 3.3;
+      console.log("Measured ADC voltage: " + measuredVoltage);
       var measuredCurrent = (measuredVoltage/resistance) * 2000;
 
       // Calculate power
