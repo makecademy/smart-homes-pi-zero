@@ -11,7 +11,7 @@ app.use(express.static('public'));
 var outputPin = 18;
 
 // Routes
-app.get('/', function (req, res) {
+app.get('/interface', function (req, res) {
 
   res.sendfile(__dirname + '/public/interface.html');
 
