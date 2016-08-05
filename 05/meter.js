@@ -2,7 +2,7 @@
 var mcpadc = require('mcp-spi-adc');
 var express = require('express');
 var app = express();
-var piREST = require('pi-aREST')(app);
+var piREST = require('pi-arest')(app);
 
 // ADC channel
 var channel = 5;
