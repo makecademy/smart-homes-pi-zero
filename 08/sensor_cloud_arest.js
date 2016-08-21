@@ -25,6 +25,18 @@ var sensor = {
         piREST.variable('temperature', readout.temperature.toFixed(2));
         piREST.variable('humidity', readout.humidity.toFixed(2));
 
+        // Get motion sensor data
+        piREST.digitalRead(18, function(data) {
+
+          if (data == 1) {
+            piREST.variable('motion', "Motion Detected");
+          }
+          else {
+            piREST.variable('motion', "No Motion");
+          }
+
+        });
+
         // Repeat
         setTimeout(function () {
             sensor.read();
