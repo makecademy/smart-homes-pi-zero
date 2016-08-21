@@ -7,6 +7,7 @@ var piREST = require('pi-arest')(app);
 // Thing name
 piREST.set_id('73gutg');
 piREST.set_name('pi_zero_cloud');
+piREST.set_mode('bcm');
 
 // Sensor measurement loop
 var sensor = {
