@@ -38,8 +38,8 @@ function logData(readout) {
 
   // Build URL
   var url = "https://dweet.io/dweet/for/" + thingName;
-  url += "?hello=" + readout.temperature.toFixed(2);
-  url += "&foo=" + readout.humidity.toFixed(2);
+  url += "?temperature=" + readout.temperature.toFixed(2);
+  url += "&humidity=" + readout.humidity.toFixed(2);
 
   // Make request
   request(url, function (error, response, body) {
