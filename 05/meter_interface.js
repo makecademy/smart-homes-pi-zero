@@ -47,7 +47,7 @@ var piREST = require('pi-arest')(app);
 var channel = 5;
 
 // Load resistance
-var resistance = 70;
+var resistance = 10;
 
 // AC voltage
 var voltage = 230; // Europe
